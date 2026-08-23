@@ -477,17 +477,17 @@
 		<div class="mt-3 mb-3 pb-1 text-gray-700 dark:text-gray-300">
 			<div class="max-w-3xl text-xs leading-5">
 				<div class="text-gray-900 dark:text-gray-100">
-					{$i18n.t('Running Open WebUI for a team?')}
+					{$i18n.t('Running Nuobao LLM for a team?')}
 				</div>
 				<div class="mt-2 space-y-2">
 					<p>
 						{$i18n.t(
-							'You have more than 50 users, which often means this workspace is supporting organizational use. Open WebUI is free to use as-is, with no restrictions or hidden limits, and we want to keep it that way.'
+							'You have more than 50 users, which often means this workspace is supporting organizational use. Nuobao LLM is free to use as-is, with no restrictions or hidden limits, and we want to keep it that way.'
 						)}
 					</p>
 					<p class="text-gray-500 dark:text-gray-400">
 						{$i18n.t(
-							'By supporting the project through sponsorship or an enterprise license, you help us stay independent, ship new features faster, improve stability, and grow Open WebUI for the long haul.'
+							'By supporting the project through sponsorship or an enterprise license, you help us stay independent, ship new features faster, improve stability, and grow Nuobao LLM for the long haul.'
 						)}
 					</p>
 					<p class="text-gray-500 dark:text-gray-400">

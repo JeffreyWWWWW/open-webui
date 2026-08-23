@@ -30,6 +30,38 @@ def test_nuobao_icons_have_declared_sizes() -> None:
 
 def test_manifest_declares_nuobao_brand() -> None:
     manifest = (ROOT / 'static/manifest.json').read_text(encoding='utf-8')
+    backend_manifest = (ROOT / 'backend/open_webui/static/site.webmanifest').read_text(encoding='utf-8')
 
     assert 'Nuobao LLM' in manifest
     assert 'NBLLM' in manifest
+    assert 'Nuobao LLM' in backend_manifest
+
+
+def test_runtime_sources_do_not_keep_product_upstream_branding() -> None:
+    targets = [
+        ROOT / 'src/app.html',
+        ROOT / 'static/manifest.json',
+        ROOT / 'static/static/site.webmanifest',
+        ROOT / 'static/opensearch.xml',
+        ROOT / 'src/lib/components/chat/Settings/About.svelte',
+        ROOT / 'src/lib/components/admin/Functions.svelte',
+        ROOT / 'src/lib/components/admin/Evaluations/Feedbacks.svelte',
+        ROOT / 'src/lib/components/chat/Placeholder.svelte',
+        ROOT / 'src/lib/components/chat/ModelSelector/ModelItemMenu.svelte',
+        ROOT / 'src/lib/components/chat/Messages/RateComment.svelte',
+        ROOT / 'src/lib/components/workspace/Tools.svelte',
+        ROOT / 'src/lib/components/workspace/Tools/ToolMenu.svelte',
+        ROOT / 'src/lib/components/workspace/Prompts.svelte',
+        ROOT / 'src/lib/components/workspace/Prompts/PromptMenu.svelte',
+        ROOT / 'src/lib/components/workspace/Models.svelte',
+        ROOT / 'src/lib/components/workspace/Models/ModelMenu.svelte',
+        ROOT / 'src/lib/components/chat/ShareChatModal.svelte',
+    ]
+    offenders = []
+
+    for path in targets:
+        text = path.read_text(encoding='utf-8', errors='ignore')
+        if 'Open WebUI' in text or 'OpenWebUI' in text or 'openwebui.com' in text:
+            offenders.append(str(path.relative_to(ROOT)))
+
+    assert offenders == []

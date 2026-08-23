@@ -63,16 +63,13 @@
 						</Tooltip>
 
 						{#if $config?.features?.enable_version_update_check}
-							<a
-								href="https://github.com/open-webui/open-webui/releases/tag/v{version.latest}"
-								target="_blank"
-							>
+							<span>
 								{updateAvailable === null
 									? $i18n.t('Checking for updates...')
 									: updateAvailable
 										? `(v${version.latest} ${$i18n.t('available!')})`
 										: $i18n.t('(latest)')}
-							</a>
+							</span>
 						{/if}
 					</div>
 
@@ -110,31 +107,13 @@
 		<UserSettingSection title={$i18n.t('Community')}>
 			{#if $config?.license_metadata}
 				<div class="text-xs text-gray-600 dark:text-gray-400">
-					{#if !$WEBUI_NAME.includes('Open WebUI')}
-						<span>{$WEBUI_NAME}</span> -
-					{/if}
+					<span>{$WEBUI_NAME}</span> -
 
 					<span class="capitalize">{$config?.license_metadata?.type}</span> license purchased by
 					<span class="capitalize">{$config?.license_metadata?.organization_name}</span>
 				</div>
 			{:else}
-				<div class="flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-400 dark:text-gray-600">
-					<a
-						class="hover:text-gray-700 dark:hover:text-gray-400"
-						href="https://discord.gg/5rJgQTnV4s"
-						target="_blank">Discord</a
-					>
-					<a
-						class="hover:text-gray-700 dark:hover:text-gray-400"
-						href="https://twitter.com/OpenWebUI"
-						target="_blank">X</a
-					>
-					<a
-						class="hover:text-gray-700 dark:hover:text-gray-400"
-						href="https://github.com/open-webui/open-webui"
-						target="_blank">GitHub</a
-					>
-				</div>
+				<div class="text-xs text-gray-400 dark:text-gray-600">Nuobao LLM</div>
 			{/if}
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">
@@ -144,11 +123,7 @@
 			</div>
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">
-				Copyright (c) {new Date().getFullYear()}
-				<a href="https://openwebui.com" target="_blank" class="underline">Open WebUI Inc.</a>
-				<a href="https://github.com/open-webui/open-webui/blob/main/LICENSE" target="_blank"
-					>All rights reserved.</a
-				>
+				Copyright (c) {new Date().getFullYear()} Nuobao LLM
 			</div>
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">

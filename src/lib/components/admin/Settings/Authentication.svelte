@@ -490,7 +490,7 @@
 
 				<AdminSettingRow
 					label={$i18n.t('Group Mapping')}
-					description={$i18n.t('Map LDAP groups to Open WebUI groups.')}
+					description={$i18n.t('Map LDAP groups to Nuobao LLM groups.')}
 					let:labelId
 				>
 					<Switch bind:state={LDAP_SERVER.enable_group_management} ariaLabelledbyId={labelId} />
@@ -695,7 +695,7 @@
 
 					<AdminSettingRow
 						label={$i18n.t('Role Mapping')}
-						description={$i18n.t('Map OAuth claims to Open WebUI roles.')}
+						description={$i18n.t('Map OAuth claims to Nuobao LLM roles.')}
 						let:labelId
 					>
 						<Switch
@@ -743,7 +743,7 @@
 
 					<AdminSettingRow
 						label={$i18n.t('Group Mapping')}
-						description={$i18n.t('Map OAuth claims to Open WebUI groups.')}
+						description={$i18n.t('Map OAuth claims to Nuobao LLM groups.')}
 						let:labelId
 					>
 						<Switch
