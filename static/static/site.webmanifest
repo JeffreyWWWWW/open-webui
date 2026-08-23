@@ -1,6 +1,6 @@
 {
-  "name": "Open WebUI",
-  "short_name": "WebUI",
+  "name": "Nuobao LLM",
+  "short_name": "NBLLM",
   "icons": [
     {
       "src": "/static/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#09298f",
+  "background_color": "#09298f",
   "display": "standalone"
 }
