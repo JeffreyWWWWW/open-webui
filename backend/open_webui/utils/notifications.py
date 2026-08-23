@@ -383,7 +383,7 @@ async def dispatch_notification_event(app: Any, event: Any) -> None:
 
     from open_webui.events import event_user_ids
 
-    app_name = getattr(getattr(app, 'state', None), 'WEBUI_NAME', 'Open WebUI')
+    app_name = getattr(getattr(app, 'state', None), 'WEBUI_NAME', 'Nuobao LLM')
     for user_id in event_user_ids(event):
         try:
             notifications = await _load_notifications(user_id)
