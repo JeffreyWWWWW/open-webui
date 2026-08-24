@@ -28,6 +28,26 @@ def test_nuobao_icons_have_declared_sizes() -> None:
     assert Image.open(ASSET_DIR / 'favicon-96x96.png').size == (96, 96)
 
 
+def test_visible_brand_assets_are_cache_versioned() -> None:
+    """Old Open WebUI icons must not survive in browsers' static-asset cache."""
+    version = 'v=nuobao-20260825'
+    targets = [
+        ROOT / 'src/app.html',
+        ROOT / 'src/lib/components/layout/Sidebar.svelte',
+        ROOT / 'src/lib/components/app/AppSidebar.svelte',
+        ROOT / 'backend/open_webui/routers/models.py',
+        ROOT / 'backend/open_webui/config.py',
+        ROOT / 'backend/open_webui/main.py',
+        ROOT / 'static/static/favicon.svg',
+        ROOT / 'static/manifest.json',
+        ROOT / 'static/static/site.webmanifest',
+        ROOT / 'backend/open_webui/static/site.webmanifest',
+    ]
+
+    for path in targets:
+        assert version in path.read_text(encoding='utf-8'), path.relative_to(ROOT)
+
+
 def test_manifest_declares_nuobao_brand() -> None:
     manifest = (ROOT / 'static/manifest.json').read_text(encoding='utf-8')
     backend_manifest = (ROOT / 'backend/open_webui/static/site.webmanifest').read_text(encoding='utf-8')

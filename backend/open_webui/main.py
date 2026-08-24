@@ -2705,13 +2705,13 @@ async def get_manifest_json():
             'background_color': '#343541',
             'icons': [
                 {
-                    'src': '/static/logo.png',
+                    'src': '/static/logo.png?v=nuobao-20260825',
                     'type': 'image/png',
                     'sizes': '500x500',
                     'purpose': 'any',
                 },
                 {
-                    'src': '/static/logo.png',
+                    'src': '/static/logo.png?v=nuobao-20260825',
                     'type': 'image/png',
                     'sizes': '500x500',
                     'purpose': 'maskable',

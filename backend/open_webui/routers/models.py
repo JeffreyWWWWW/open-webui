@@ -591,6 +591,15 @@ async def get_model_profile_image(
                 break
 
     if profile_image_url:
+        # Existing installations may have stored the old product favicon as the
+        # default model avatar. Route only those legacy defaults to the Nuobao logo;
+        # explicit user-provided model avatars remain untouched.
+        if profile_image_url in {'/favicon.png', '/static/favicon.png'}:
+            return RedirectResponse(
+                url='/static/favicon.png?v=nuobao-20260825',
+                status_code=status.HTTP_302_FOUND,
+            )
+
         if profile_image_url.startswith('http'):
             if ENABLE_PROFILE_IMAGE_URL_FORWARDING:
                 return Response(
@@ -610,7 +619,7 @@ async def get_model_profile_image(
                 # only serve known-safe raster types inline; reject SVG/unknown (can run script on our origin)
                 if media_type not in PROFILE_IMAGE_ALLOWED_MIME_TYPES:
                     return RedirectResponse(
-                        url='/static/favicon.png',
+                        url='/static/favicon.png?v=nuobao-20260825',
                         status_code=status.HTTP_302_FOUND,
                     )
 
@@ -637,7 +646,7 @@ async def get_model_profile_image(
                 )
 
     return RedirectResponse(
-        url='/static/favicon.png',
+        url='/static/favicon.png?v=nuobao-20260825',
         status_code=status.HTTP_302_FOUND,
     )
 
