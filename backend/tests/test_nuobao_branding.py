@@ -33,6 +33,7 @@ def test_visible_brand_assets_are_cache_versioned() -> None:
     version = 'v=nuobao-20260825'
     targets = [
         ROOT / 'src/app.html',
+        ROOT / 'src/routes/+layout.svelte',
         ROOT / 'src/lib/components/layout/Sidebar.svelte',
         ROOT / 'src/lib/components/app/AppSidebar.svelte',
         ROOT / 'backend/open_webui/routers/models.py',

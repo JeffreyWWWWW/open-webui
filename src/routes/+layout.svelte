@@ -542,7 +542,7 @@
 				if ($settings?.notificationEnabled ?? false) {
 					new Notification(`${data.title} / Nuobao LLM`, {
 						body: timeStr,
-						icon: `${WEBUI_BASE_URL}/static/favicon.png`
+						icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20260825`
 					});
 				}
 			}
@@ -677,7 +677,7 @@
 						if ($settings?.notificationEnabled ?? false) {
 							new Notification(`${displayTitle} / Nuobao LLM`, {
 								body: contentPreview,
-								icon: `${WEBUI_BASE_URL}/static/favicon.png`
+								icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20260825`
 							});
 						}
 					}
@@ -1294,7 +1294,11 @@
 
 <svelte:head>
 	<title>{$WEBUI_NAME}</title>
-	<link crossorigin="anonymous" rel="icon" href="{WEBUI_BASE_URL}/static/favicon.png" />
+	<link
+		crossorigin="anonymous"
+		rel="icon"
+		href="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20260825"
+	/>
 
 	<meta name="apple-mobile-web-app-title" content={$WEBUI_NAME} />
 	<meta name="description" content={$WEBUI_NAME} />
