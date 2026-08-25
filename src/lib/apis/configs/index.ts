@@ -268,7 +268,7 @@ export const detectTerminalServerType = async (
 
 /**
  * Create or update a policy on the orchestrator.
- * Proxied through the Nuobao LLM backend to keep API keys server-side.
+ * Proxied through the Nuobao Infinity backend to keep API keys server-side.
  */
 export const putOrchestratorPolicy = async (
 	token: string,

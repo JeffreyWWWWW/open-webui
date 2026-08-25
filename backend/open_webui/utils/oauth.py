@@ -506,7 +506,7 @@ async def get_oauth_client_info_with_dynamic_client_registration(
         redirect_base_url = (str(webui_url or request.base_url)).rstrip('/')
 
         oauth_client_metadata = OAuthClientMetadata(
-            client_name='Nuobao LLM',
+            client_name='Nuobao Infinity',
             redirect_uris=[f'{redirect_base_url}/oauth/clients/{client_id}/callback'],
             grant_types=['authorization_code', 'refresh_token'],
             response_types=['code'],
@@ -566,7 +566,7 @@ async def get_oauth_client_info_with_dynamic_client_registration(
             raise Exception(
                 'Could not discover the OAuth authorization server metadata '
                 f'(authorization_endpoint) for {oauth_server_url}. The MCP server must '
-                'expose RFC 8414 / RFC 9728 discovery documents so Nuobao LLM can '
+                'expose RFC 8414 / RFC 9728 discovery documents so Nuobao Infinity can '
                 'resolve where to send users to authorize.'
             )
 

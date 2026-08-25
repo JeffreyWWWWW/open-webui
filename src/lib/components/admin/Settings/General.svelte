@@ -141,7 +141,7 @@
 						<div class="min-w-0">
 							<div class="text-gray-600 dark:text-gray-400">{$i18n.t('Help')}</div>
 							<div class="mt-0.5 text-gray-400 dark:text-gray-600">
-								{$i18n.t('Discover how to use Nuobao LLM and seek support from the community.')}
+								{$i18n.t('Discover how to use Nuobao Infinity and seek support from the community.')}
 							</div>
 						</div>
 
@@ -162,7 +162,7 @@
 						>
 						<a
 							class="hover:text-gray-700 dark:hover:text-gray-300"
-							href="https://twitter.com/NBLLM"
+							href="https://twitter.com/诺宝无限"
 							target="_blank">X</a
 						>
 						<a
@@ -216,7 +216,7 @@
 			<AdminSettingSection title={$i18n.t('Features')}>
 				<AdminSettingRow
 					label={$i18n.t('Community Sharing')}
-					description={$i18n.t('Allow users to share chats with the Nuobao LLM community.')}
+					description={$i18n.t('Allow users to share chats with the Nuobao Infinity community.')}
 					let:labelId
 				>
 					<Switch bind:state={adminConfig.ENABLE_COMMUNITY_SHARING} ariaLabelledbyId={labelId} />

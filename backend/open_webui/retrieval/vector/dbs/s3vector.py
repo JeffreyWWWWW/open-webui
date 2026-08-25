@@ -20,7 +20,7 @@ log = logging.getLogger(__name__)
 
 class S3VectorClient(VectorDBBase):
     """
-    AWS S3 Vector integration for Nuobao LLM Knowledge.
+    AWS S3 Vector integration for Nuobao Infinity Knowledge.
     """
 
     def __init__(self):
@@ -82,7 +82,7 @@ class S3VectorClient(VectorDBBase):
         if not isinstance(metadata, dict) or len(metadata) <= 10:
             return metadata
 
-        # Keep only the first 10 keys, prioritizing important ones based on actual Nuobao LLM metadata
+        # Keep only the first 10 keys, prioritizing important ones based on actual Nuobao Infinity metadata
         important_keys = [
             'text',  # The actual document content
             'file_id',  # File ID
@@ -537,7 +537,7 @@ class S3VectorClient(VectorDBBase):
             log.info(f"Retrieved {len(all_ids)} vectors from collection '{collection_name}'")
 
             # Return in GetResult format
-            # The Nuobao LLM GetResult expects lists of lists, so we wrap each list
+            # The Nuobao Infinity GetResult expects lists of lists, so we wrap each list
             if all_ids:
                 return GetResult(ids=[all_ids], documents=[all_documents], metadatas=[all_metadatas])
             else:

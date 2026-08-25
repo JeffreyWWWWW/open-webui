@@ -611,7 +611,7 @@
 								<div>
 									{$i18n.t('Example')}:
 									<code class="text-gray-700 dark:text-gray-300"
-										>{'{"X-NBLLM-File-Id": "{{FILE_ID}}"}'}</code
+										>{'{"X-诺宝无限-File-Id": "{{FILE_ID}}"}'}</code
 									>
 								</div>
 								<div>

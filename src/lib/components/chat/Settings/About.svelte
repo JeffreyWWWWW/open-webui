@@ -113,7 +113,7 @@
 					<span class="capitalize">{$config?.license_metadata?.organization_name}</span>
 				</div>
 			{:else}
-				<div class="text-xs text-gray-400 dark:text-gray-600">Nuobao LLM</div>
+				<div class="text-xs text-gray-400 dark:text-gray-600">Nuobao Infinity</div>
 			{/if}
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">
@@ -123,7 +123,7 @@
 			</div>
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">
-				Copyright (c) {new Date().getFullYear()} Nuobao LLM
+				Copyright (c) {new Date().getFullYear()} Nuobao Infinity
 			</div>
 
 			<div class="text-xs text-gray-400 dark:text-gray-500">

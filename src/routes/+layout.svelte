@@ -540,7 +540,7 @@
 
 			if ($isLastActiveTab) {
 				if ($settings?.notificationEnabled ?? false) {
-					new Notification(`${data.title} / Nuobao LLM`, {
+					new Notification(`${data.title} / Nuobao Infinity`, {
 						body: timeStr,
 						icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20260825`
 					});
@@ -675,7 +675,7 @@
 
 					if ($isLastActiveTab) {
 						if ($settings?.notificationEnabled ?? false) {
-							new Notification(`${displayTitle} / Nuobao LLM`, {
+							new Notification(`${displayTitle} / Nuobao Infinity`, {
 								body: contentPreview,
 								icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20260825`
 							});
@@ -782,7 +782,7 @@
 
 				if ($isLastActiveTab) {
 					if ($settings?.notificationEnabled ?? false) {
-						new Notification(`${title} / Nuobao LLM`, {
+						new Notification(`${title} / Nuobao Infinity`, {
 							body: data?.content,
 							icon: `${WEBUI_API_BASE_URL}/users/${data?.user?.id}/profile/image`
 						});

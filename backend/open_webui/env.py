@@ -520,7 +520,7 @@ import ssl as _ssl
 # to a path directly) take precedence over this global fallback.
 #
 # This follows the industry convention of ``SSL_CERT_FILE`` / ``REQUESTS_CA_BUNDLE``
-# but is scoped to Nuobao LLM to avoid interfering with system-level settings.
+# but is scoped to Nuobao Infinity to avoid interfering with system-level settings.
 AIOHTTP_CLIENT_SSL_CERT_FILE = os.getenv('AIOHTTP_CLIENT_SSL_CERT_FILE', '').strip()
 
 
@@ -552,7 +552,7 @@ def _parse_ssl_env(value: str) -> 'bool | _ssl.SSLContext':
     - ``"/path/to/ca-bundle.crt"`` → ``SSLContext`` loading that CA file
       (takes precedence over ``AIOHTTP_CLIENT_SSL_CERT_FILE``)
 
-    This allows users with corporate or internal CAs to point Nuobao LLM
+    This allows users with corporate or internal CAs to point Nuobao Infinity
     at a custom CA bundle without disabling verification entirely.
     """
     lower = value.strip().lower()
@@ -759,7 +759,7 @@ WEBUI_AUTH_TRUSTED_GROUPS_HEADER = os.getenv('WEBUI_AUTH_TRUSTED_GROUPS_HEADER',
 WEBUI_AUTH_TRUSTED_ROLE_HEADER = os.getenv('WEBUI_AUTH_TRUSTED_ROLE_HEADER', None)
 
 # Custom header name for API key authentication.  Defaults to 'x-api-key'.
-# Useful when Nuobao LLM sits behind a reverse proxy / API gateway that
+# Useful when Nuobao Infinity sits behind a reverse proxy / API gateway that
 # already uses the Authorization header for its own authentication — set
 # this to a unique header (e.g. 'X-OpenWebUI-Key') so the middleware
 # checks the custom header instead and avoids the 401 short-circuit.
@@ -802,7 +802,7 @@ BYPASS_PYDUB_PREPROCESSING = os.getenv('BYPASS_PYDUB_PREPROCESSING', 'False').lo
 
 # When disabled (default), the OpenAI catch-all proxy endpoint (/{path:path})
 # is blocked. Enable only if you need direct passthrough to upstream OpenAI-
-# compatible APIs for endpoints not natively handled by Nuobao LLM.
+# compatible APIs for endpoints not natively handled by Nuobao Infinity.
 ENABLE_OPENAI_API_PASSTHROUGH = os.getenv('ENABLE_OPENAI_API_PASSTHROUGH', 'False').lower() == 'true'
 
 WEBUI_AUTH_SIGNOUT_REDIRECT_URL = os.getenv('WEBUI_AUTH_SIGNOUT_REDIRECT_URL', None)
@@ -888,7 +888,7 @@ if LICENSE_PUBLIC_KEY:
 # WEBUI Identity
 ####################################
 
-WEBUI_NAME = os.getenv('WEBUI_NAME', 'Nuobao LLM')
+WEBUI_NAME = os.getenv('WEBUI_NAME', 'Nuobao Infinity')
 WEBUI_FAVICON_URL = '/static/favicon.png'
 WEBUI_BUILD_HASH = os.getenv('WEBUI_BUILD_HASH', 'dev-build')
 TRUSTED_SIGNATURE_KEY = os.getenv('TRUSTED_SIGNATURE_KEY', '')

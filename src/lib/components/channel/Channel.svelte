@@ -309,10 +309,10 @@
 					} else {
 						return e.name;
 					}
-				}, '')} / Nuobao LLM</title
+				}, '')} / Nuobao Infinity</title
 		>
 	{:else}
-		<title>#{channel?.name ?? 'Channel'} / Nuobao LLM</title>
+		<title>#{channel?.name ?? 'Channel'} / Nuobao Infinity</title>
 	{/if}
 </svelte:head>
 

@@ -18,7 +18,7 @@ def version_callback(value: bool) -> None:
     if value:
         from open_webui.env import VERSION
 
-        typer.echo(f'Nuobao LLM version: {VERSION}')
+        typer.echo(f'Nuobao Infinity version: {VERSION}')
         raise typer.Exit()
 
 

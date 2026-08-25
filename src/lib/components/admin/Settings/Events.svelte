@@ -643,7 +643,7 @@
 
 							<div class="text-xs text-gray-500">
 								{$i18n.t(
-									'Event names may change as Nuobao LLM evolves. Use broad patterns like user.* for integrations that should continue across new related events.'
+									'Event names may change as Nuobao Infinity evolves. Use broad patterns like user.* for integrations that should continue across new related events.'
 								)}
 							</div>
 						</div>
