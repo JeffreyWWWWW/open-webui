@@ -30,7 +30,7 @@ def test_nuobao_icons_have_declared_sizes() -> None:
 
 def test_visible_brand_assets_are_cache_versioned() -> None:
     """Old Open WebUI icons must not survive in browsers' static-asset cache."""
-    version = 'v=nuobao-20260825'
+    version = 'v=nuobao-20261025'
     targets = [
         ROOT / 'src/app.html',
         ROOT / 'src/routes/+layout.svelte',
