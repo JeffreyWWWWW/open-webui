@@ -58,31 +58,13 @@ def test_manifest_declares_nuobao_infinity_brand() -> None:
     assert 'Nuobao Infinity' in backend_manifest
 
 
-def test_runtime_sources_do_not_keep_product_upstream_branding() -> None:
-    targets = [
-        ROOT / 'src/app.html',
-        ROOT / 'static/manifest.json',
-        ROOT / 'static/static/site.webmanifest',
-        ROOT / 'static/opensearch.xml',
-        ROOT / 'src/lib/components/chat/Settings/About.svelte',
-        ROOT / 'src/lib/components/admin/Functions.svelte',
-        ROOT / 'src/lib/components/admin/Evaluations/Feedbacks.svelte',
-        ROOT / 'src/lib/components/chat/Placeholder.svelte',
-        ROOT / 'src/lib/components/chat/ModelSelector/ModelItemMenu.svelte',
-        ROOT / 'src/lib/components/chat/Messages/RateComment.svelte',
-        ROOT / 'src/lib/components/workspace/Tools.svelte',
-        ROOT / 'src/lib/components/workspace/Tools/ToolMenu.svelte',
-        ROOT / 'src/lib/components/workspace/Prompts.svelte',
-        ROOT / 'src/lib/components/workspace/Prompts/PromptMenu.svelte',
-        ROOT / 'src/lib/components/workspace/Models.svelte',
-        ROOT / 'src/lib/components/workspace/Models/ModelMenu.svelte',
-        ROOT / 'src/lib/components/chat/ShareChatModal.svelte',
-    ]
-    offenders = []
-
-    for path in targets:
-        text = path.read_text(encoding='utf-8', errors='ignore')
-        if 'Open WebUI' in text or 'OpenWebUI' in text or 'openwebui.com' in text:
-            offenders.append(str(path.relative_to(ROOT)))
-
-    assert offenders == []
+def test_runtime_identity_preserves_brand_and_upstream_attribution() -> None:
+    # Newer upstream includes license comments and copyright attribution.
+    # Those are deliberately retained; the application identity stays Nuobao.
+    constants = (ROOT / 'src/lib/constants.ts').read_text(encoding='utf-8')
+    assert "export const APP_NAME = 'Nuobao Infinity'" in constants
+    about = (ROOT / 'src/lib/components/chat/Settings/About.svelte').read_text(encoding='utf-8')
+    assert '$WEBUI_NAME' in about
+    assert 'Open WebUI Inc.' in about
+    license_text = (ROOT / 'LICENSE').read_text(encoding='utf-8')
+    assert 'Copyright (c) 2023- Open WebUI Inc.' in license_text

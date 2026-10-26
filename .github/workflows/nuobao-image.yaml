@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - codex/rebrand-nuobao-llm
+      - codex/upgrade-openwebui-v0124
 
 permissions:
   contents: read

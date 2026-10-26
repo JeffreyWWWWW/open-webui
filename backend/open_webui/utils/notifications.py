@@ -46,8 +46,8 @@ def _normalize_target(target: dict[str, Any], existing: dict[str, Any] | None = 
 
     target_id = str(target.get('id') or existing.get('id') or '').strip()
     if not target_id:
-        hostname = urlparse(url).hostname or 'webhook'
-        target_id = re.sub(r'[^a-zA-Z0-9_-]+', '-', hostname).strip('-').lower() or 'target'
+        target_id = urlparse(url).hostname or 'webhook'
+    target_id = re.sub(r'[^a-zA-Z0-9_-]+', '-', target_id).strip('-').lower() or 'target'
 
     events = target['events'] if 'events' in target else existing.get('events', [])
     if events is None:
@@ -268,9 +268,6 @@ def _notification_webhook_content(event: Any) -> tuple[str, str, dict[str, Any],
         title = str(data.get('title') or event.message or 'Chat finished')
         content = str(data.get('message') or '')
         url = str(data.get('url') or '')
-        chat_id = str(data.get('chat_id') or '')
-        if chat_id and url.endswith(f'/c/{chat_id}'):
-            url = f'{url[: -len(f"/c/{chat_id}")].rstrip("/")}/{chat_id}'
         body = '\n'.join(part for part in (content, url) if part)
         return (
             f'**{title}**',
@@ -288,9 +285,6 @@ def _notification_webhook_content(event: Any) -> tuple[str, str, dict[str, Any],
         title = str(event.message or 'Chat failed')
         content = str(data.get('message') or '')
         url = str(data.get('url') or '')
-        chat_id = str(data.get('chat_id') or '')
-        if chat_id and url.endswith(f'/c/{chat_id}'):
-            url = f'{url[: -len(f"/c/{chat_id}")].rstrip("/")}/{chat_id}'
         body = '\n'.join(part for part in (content, url) if part)
         return (
             f'**{title}**',
@@ -343,7 +337,10 @@ def _notification_webhook_content(event: Any) -> tuple[str, str, dict[str, Any],
     return str(title), message, event.model_dump(), message if title else None
 
 
-async def test_target(user_id: str, target_id: str, app_name: str = 'Nuobao Infinity') -> dict[str, Any]:
+# LICENSE covers this Open WebUI notification identifier.
+# Do not alter, remove, obscure, or replace it except as LICENSE permits:
+# https://docs.openwebui.com/license.
+async def test_target(user_id: str, target_id: str, app_name: str = 'Open WebUI') -> dict[str, Any]:
     notifications = await _load_notifications(user_id)
     target = _find_target(notifications, target_id)
     if not target:
@@ -351,15 +348,25 @@ async def test_target(user_id: str, target_id: str, app_name: str = 'Nuobao Infi
     await _send_webhook(
         app_name,
         target,
-        'This is a test notification from Nuobao Infinity.',
+        # LICENSE covers this Open WebUI notification copy.
+        # Do not alter, remove, obscure, or replace it except as LICENSE permits:
+        # https://docs.openwebui.com/license.
+        'This is a test notification from Open WebUI.',
         {'action': 'test', 'user_id': user_id},
         'Test notification',
     )
     return {'ok': True}
 
 
+# LICENSE covers this Open WebUI notification identifier.
+# Do not alter, remove, obscure, or replace it except as LICENSE permits:
+# https://docs.openwebui.com/license.
 async def notify_target(
-    user_id: str, message: str, target: str = '', title: str = '', app_name: str = 'Nuobao Infinity'
+    user_id: str,
+    message: str,
+    target: str = '',
+    title: str = '',
+    app_name: str = 'Open WebUI',
 ) -> dict[str, Any]:
     notifications = await _load_notifications(user_id)
     item = _find_target(notifications, target)
@@ -383,7 +390,10 @@ async def dispatch_notification_event(app: Any, event: Any) -> None:
 
     from open_webui.events import event_user_ids
 
-    app_name = getattr(getattr(app, 'state', None), 'WEBUI_NAME', 'Nuobao Infinity')
+    # LICENSE covers this Open WebUI notification identifier.
+    # Do not alter, remove, obscure, or replace it except as LICENSE permits:
+    # https://docs.openwebui.com/license.
+    app_name = getattr(getattr(app, 'state', None), 'WEBUI_NAME', 'Open WebUI')
     for user_id in event_user_ids(event):
         try:
             notifications = await _load_notifications(user_id)
