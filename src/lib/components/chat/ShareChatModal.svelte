@@ -2,7 +2,7 @@
 	import type { Writable } from 'svelte/store';
 	import type { i18n as i18nType } from 'i18next';
 	import { getContext, onMount } from 'svelte';
-	import { user } from '$lib/stores';
+	import { models, config, user } from '$lib/stores';
 
 	import { toast } from 'svelte-sonner';
 	import {
