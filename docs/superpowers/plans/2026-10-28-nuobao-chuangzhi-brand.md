@@ -1,5 +1,12 @@
 # 诺宝创智 LLM branding deployment
 
+> SUPERSEDED — DO NOT DEPLOY commit `9e702a5bc76436922f59ccdf787d81b7b3bb265a`.
+> The user rejected the first folded-N logo and required the original blue.
+> Its image build completed, but the Zeabur source edit was cancelled without
+> saving. The live source was re-read and remains the original `git-89aadda…`.
+> Three new concept studies are in the current chat's `nuobao-brand/round-2`.
+> Select and refine a new direction before preparing another deployment image.
+
 **Goal:** Apply the user-approved folded-N icon and brand name to nbllm.zeabur.app.
 
 **Architecture:** Build the current frontend with the approved images and a new cache version. Reuse the exact currently deployed backend image, copying only the three backend files whose asset URL version changes. Keep normal full-image publishing available through the existing workflow.
