@@ -542,7 +542,7 @@
 				if ($settings?.notificationEnabled ?? false) {
 					new Notification(`${data.title} / Nuobao Infinity`, {
 						body: timeStr,
-						icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261025`
+						icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261028`
 					});
 				}
 			}
@@ -677,7 +677,7 @@
 						if ($settings?.notificationEnabled ?? false) {
 							new Notification(`${displayTitle} / Nuobao Infinity`, {
 								body: contentPreview,
-								icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261025`
+								icon: `${WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261028`
 							});
 						}
 					}
@@ -1297,7 +1297,7 @@
 	<link
 		crossorigin="anonymous"
 		rel="icon"
-		href="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261025"
+		href="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261028"
 	/>
 
 	<meta name="apple-mobile-web-app-title" content={$WEBUI_NAME} />

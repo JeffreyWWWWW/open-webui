@@ -2702,18 +2702,18 @@ async def get_manifest_json():
             'description': f'{app.state.WEBUI_NAME} is an open, extensible, user-friendly interface for AI that adapts to your workflow.',
             'start_url': '/',
             'display': 'standalone',
-            'background_color': '#343541',
+            'background_color': '#202B66',
             'icons': [
                 {
-                    'src': '/static/logo.png?v=nuobao-20261025',
+                    'src': '/static/web-app-manifest-192x192.png?v=nuobao-20261028',
                     'type': 'image/png',
-                    'sizes': '500x500',
+                    'sizes': '192x192',
                     'purpose': 'any',
                 },
                 {
-                    'src': '/static/logo.png?v=nuobao-20261025',
+                    'src': '/static/web-app-manifest-512x512.png?v=nuobao-20261028',
                     'type': 'image/png',
-                    'sizes': '500x500',
+                    'sizes': '512x512',
                     'purpose': 'maskable',
                 },
             ],

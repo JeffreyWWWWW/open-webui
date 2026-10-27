@@ -956,7 +956,7 @@
 							class=" self-center flex size-[30px] items-center justify-center rounded-lg transition group-hover:bg-gray-50 dark:group-hover:bg-gray-900"
 						>
 							<img
-								src="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261025"
+								src="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261028"
 								class="sidebar-new-chat-icon size-5 rounded-full group-hover:hidden"
 								alt=""
 							/>
@@ -1134,7 +1134,7 @@
 				>
 					<img
 						crossorigin="anonymous"
-								src="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261025"
+								src="{WEBUI_BASE_URL}/static/favicon.png?v=nuobao-20261028"
 						class="sidebar-new-chat-icon size-5 rounded-full"
 						alt=""
 					/>

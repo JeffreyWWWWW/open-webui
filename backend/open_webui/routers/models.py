@@ -596,7 +596,7 @@ async def get_model_profile_image(
         # explicit user-provided model avatars remain untouched.
         if profile_image_url in {'/favicon.png', '/static/favicon.png'}:
             return RedirectResponse(
-                url='/static/favicon.png?v=nuobao-20261025',
+                url='/static/favicon.png?v=nuobao-20261028',
                 status_code=status.HTTP_302_FOUND,
             )
 
@@ -619,7 +619,7 @@ async def get_model_profile_image(
                 # only serve known-safe raster types inline; reject SVG/unknown (can run script on our origin)
                 if media_type not in PROFILE_IMAGE_ALLOWED_MIME_TYPES:
                     return RedirectResponse(
-                        url='/static/favicon.png?v=nuobao-20261025',
+                        url='/static/favicon.png?v=nuobao-20261028',
                         status_code=status.HTTP_302_FOUND,
                     )
 
@@ -646,7 +646,7 @@ async def get_model_profile_image(
                 )
 
     return RedirectResponse(
-        url='/static/favicon.png?v=nuobao-20261025',
+        url='/static/favicon.png?v=nuobao-20261028',
         status_code=status.HTTP_302_FOUND,
     )
 

@@ -10,7 +10,7 @@ ASSET_DIR = ROOT / 'static/static'
 def test_default_name_and_favicon_are_nuobao_infinity() -> None:
     env = (ROOT / 'backend/open_webui/env.py').read_text(encoding='utf-8')
 
-    assert "WEBUI_NAME = os.getenv('WEBUI_NAME', 'Nuobao Infinity')" in env
+    assert "WEBUI_NAME = os.getenv('WEBUI_NAME', '诺宝创智 LLM')" in env
     assert "WEBUI_NAME += ' (Open WebUI)'" not in env
     assert "WEBUI_FAVICON_URL = '/static/favicon.png'" in env
 
@@ -30,7 +30,7 @@ def test_nuobao_icons_have_declared_sizes() -> None:
 
 def test_visible_brand_assets_are_cache_versioned() -> None:
     """Old Open WebUI icons must not survive in browsers' static-asset cache."""
-    version = 'v=nuobao-20261025'
+    version = 'v=nuobao-20261028'
     targets = [
         ROOT / 'src/app.html',
         ROOT / 'src/routes/+layout.svelte',
@@ -53,9 +53,9 @@ def test_manifest_declares_nuobao_infinity_brand() -> None:
     manifest = (ROOT / 'static/manifest.json').read_text(encoding='utf-8')
     backend_manifest = (ROOT / 'backend/open_webui/static/site.webmanifest').read_text(encoding='utf-8')
 
-    assert 'Nuobao Infinity' in manifest
-    assert '诺宝无限' in manifest
-    assert 'Nuobao Infinity' in backend_manifest
+    assert '诺宝创智 LLM' in manifest
+    assert '诺宝创智' in manifest
+    assert '诺宝创智 LLM' in backend_manifest
 
 
 def test_runtime_sources_do_not_keep_product_upstream_branding() -> None:

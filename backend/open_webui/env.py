@@ -888,7 +888,7 @@ if LICENSE_PUBLIC_KEY:
 # WEBUI Identity
 ####################################
 
-WEBUI_NAME = os.getenv('WEBUI_NAME', 'Nuobao Infinity')
+WEBUI_NAME = os.getenv('WEBUI_NAME', '诺宝创智 LLM')
 WEBUI_FAVICON_URL = '/static/favicon.png'
 WEBUI_BUILD_HASH = os.getenv('WEBUI_BUILD_HASH', 'dev-build')
 TRUSTED_SIGNATURE_KEY = os.getenv('TRUSTED_SIGNATURE_KEY', '')

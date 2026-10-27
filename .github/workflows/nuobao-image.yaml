@@ -2,6 +2,12 @@ name: Publish Nuobao LLM image
 
 on:
   workflow_dispatch:
+    inputs:
+      branding_only:
+        description: Reuse the current production backend for a branding-only release
+        type: boolean
+        required: false
+        default: false
   push:
     branches:
       - codex/rebrand-nuobao-llm
@@ -23,7 +29,13 @@ jobs:
         run: echo "IMAGE_NAME=ghcr.io/${GITHUB_REPOSITORY,,}" >> "${GITHUB_ENV}"
 
       - name: Prepare build Dockerfile
+        env:
+          BRANDING_ONLY: ${{ inputs.branding_only }}
         run: |
+          if [ "$BRANDING_ONLY" = "true" ]; then
+            cp Dockerfile.branding "${RUNNER_TEMP}/Dockerfile"
+            exit 0
+          fi
           awk '
             /^FROM --platform=\$BUILDPLATFORM node:/ {
               print
